@@ -25,7 +25,7 @@ g++ -o fordfulkerson main.cpp utilities.cpp
 ./ford
 ```
 
-### 4️⃣ **Entrer les données du graphe
+### 4️⃣ **Entrer les données du graphe**
 - **Nombre de sommets** (`n`): Entrez le nombre de somme
 - **Nombre d'arcs** (`m`): Entrez le nombre d'ar
 - **Capacités** (`u`, `v`, `c`): Entrez les capacités pour chaque a
@@ -36,24 +36,29 @@ g++ -o fordfulkerson main.cpp utilities.cpp
 
 
 
-### 6️⃣ **Afficher les résultats**
+## 📊 Affichage des résultats
 Les résultats sont affichés à l'écran, incluant le flot maximum trouvé et les capacités et flux des arcs après chaque itération.
-bash
+```bash
 Flot maximum trouvé : 15
 c =
 0 6 6 0 0 0
 6 0 0 5 0 0
-...
+
+
 f =
 0 6 6 0 0 0
 0 0 0 5 0 0
-...
+
 ```
 ## 🔧 Outils utilisés
 - **IDE** : Visual Studio Code
 - **Langage** : C++
 - **Compilateur** : g++
 - **Système d'exploitation** : MacOS
+
+## 📜 Licence
+
+- Ce projet est open-source. Vous pouvez le modifier et l’utiliser librement.
 
 
 

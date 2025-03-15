@@ -20,7 +20,7 @@ void affichage(int* c[], int* f[], int n)
 	for(int i = 0; i < n; i++){
 		for(int j = 0; j < (n-1); j++)
 			cout << f[i][j] << "\t";
-		cout << f[i][n-1] << endl;		
+		cout << f[i][n-1] << endl;
 	}
 }
 
@@ -29,7 +29,7 @@ void affichage(int* c[], int* f[], int n)
 /* c : matrice des capacités des arcs du réseau     */
 /* f : matrice des flots sur les arcs               */
 /* n : nombre de noeuds du réseau                   */
-/* s : sommet source                                */                            
+/* s : sommet source                                */
 /* t : sommet destination                           */
 /* visite : tableau permettant de marquer les       */
 /* sommets visites				    */
@@ -39,10 +39,46 @@ void affichage(int* c[], int* f[], int n)
 /* (s'il en existe)                                 */
 /* - La fonction renvoie vrai si une chaîne 	    */
 /* augmentante a été trouvée et faux sinon	    */
-/****************************************************/
-bool chaineaugmentante(int* c[], int* f[], int n, int ch[],int s, int t, bool visite[])
+/****************************************************/ bool chaineaugmentante(int *c[], int *f[], int n, int ch[], int s, int t, bool visite[])
 {
-	return(0);
+	stack<int> P; // Utilisation d'une pile pour DFS
+	bool stop = false;
+
+	// Initialisation
+	for (int i = 0; i < n; i++)
+	{
+		visite[i] = false;
+		ch[i] = -1;
+	}
+
+	P.push(s);
+
+	while (!P.empty() && !stop)
+	{
+		int i = P.top();
+		P.pop();
+
+		if (i == t)
+		{
+			stop = true;
+		}
+		else
+		{
+			visite[i] = true;
+			for (int j = 0; j < n; j++)
+			{
+				if (!visite[j])
+				{
+					if ((c[i][j] > 0 && f[i][j] < c[i][j]) || (c[j][i] > 0 && f[j][i] > 0))
+					{
+						P.push(j);
+						ch[j] = i;
+					}
+				}
+			}
+		}
+	}
+	return stop;
 }
 
 /****************************************************/
